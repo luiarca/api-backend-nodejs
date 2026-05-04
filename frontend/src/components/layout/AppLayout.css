@@ -1,0 +1,103 @@
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background:
+    radial-gradient(circle at top left, rgba(242, 196, 0, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(11, 92, 171, 0.18), transparent 25%),
+    #f4efe5;
+}
+
+.sidebar {
+  padding: 32px 24px;
+  background: #0f172a;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.brand {
+  color: #facc15;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu a {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.menu a.active,
+.menu a:hover {
+  background: rgba(250, 204, 21, 0.12);
+  color: #fff;
+}
+
+.content {
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0b5cab;
+}
+
+.topbar h1,
+.session-box p {
+  margin: 0;
+}
+
+.session-box {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 14px 16px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.session-box button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 920px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    gap: 16px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

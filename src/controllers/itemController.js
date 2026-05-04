@@ -28,13 +28,18 @@ const parseEstado = (value, defaultValue = true) => {
   return Boolean(value);
 };
 
+const formatItem = (item) => ({
+  ...item,
+  estado: parseEstado(item.estado, false)
+});
+
 const getAllItems = async (req, res, next) => {
   try {
     const [items] = await pool.query(
       "SELECT id, nombre, descripcion, estado, created_at FROM items ORDER BY id ASC"
     );
 
-    res.json(items);
+    res.json(items.map(formatItem));
   } catch (error) {
     next(error);
   }
@@ -52,7 +57,7 @@ const getItemById = async (req, res, next) => {
       return res.status(404).json({ mensaje: "Item no encontrado" });
     }
 
-    res.json(items[0]);
+    res.json(formatItem(items[0]));
   } catch (error) {
     next(error);
   }
